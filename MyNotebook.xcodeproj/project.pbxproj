@@ -11,8 +11,8 @@
 		DBF71B062A337E9900BB1372 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF71B052A337E9900BB1372 /* ContentView.swift */; };
 		DBF71B082A337E9A00BB1372 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBF71B072A337E9A00BB1372 /* Assets.xcassets */; };
 		DBF71B0B2A337E9A00BB1372 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBF71B0A2A337E9A00BB1372 /* Preview Assets.xcassets */; };
-		DBF71B142A337EF700BB1372 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF71B132A337EF700BB1372 /* Note.swift */; };
 		DBF71B182A33835000BB1372 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF71B172A33835000BB1372 /* NoteView.swift */; };
+		DBF71B1A2A33B4A000BB1372 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF71B192A33B4A000BB1372 /* NoteModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,8 +21,8 @@
 		DBF71B052A337E9900BB1372 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DBF71B072A337E9A00BB1372 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBF71B0A2A337E9A00BB1372 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		DBF71B132A337EF700BB1372 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		DBF71B172A33835000BB1372 /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
+		DBF71B192A33B4A000BB1372 /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +84,7 @@
 		DBF71B122A337ED700BB1372 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DBF71B132A337EF700BB1372 /* Note.swift */,
+				DBF71B192A33B4A000BB1372 /* NoteModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -160,9 +160,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBF71B062A337E9900BB1372 /* ContentView.swift in Sources */,
+				DBF71B1A2A33B4A000BB1372 /* NoteModel.swift in Sources */,
 				DBF71B042A337E9900BB1372 /* MyNotebookApp.swift in Sources */,
 				DBF71B182A33835000BB1372 /* NoteView.swift in Sources */,
-				DBF71B142A337EF700BB1372 /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,21 +8,24 @@
 import SwiftUI
 
 struct NoteView: View {
-    var noteTitle = "Note title"
-    var noteDescription = "Note description"
+    @State var noteTitle = "Title"
+    @State var noteDescription = "Note description"
+    var data: NoteData
     
     var body: some View {
         VStack {
-            HStack{
-                Text(noteTitle)
+            Text(data.title).bold()
+            HStack {
+                Text(data.description)
+                Spacer()
             }
-            TextEditor(text: .constant(noteDescription))
+            Spacer()
         }
     }
 }
-
-struct NoteView_Previews: PreviewProvider {
-    static var previews: some View {
-        NoteView()
+    
+    struct NoteView_Previews: PreviewProvider {
+        static var previews: some View {
+            NoteView(data: NoteModel.data[0])
+        }
     }
-}
