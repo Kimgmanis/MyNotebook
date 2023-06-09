@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    var appTitle = "Note App"
+    @State var note = "Note"
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack {
+            VStack {
+                Text(appTitle)
+                List {
+                    Text(note)
+                }
+            }
         }
-        .padding()
+        
     }
 }
 
