@@ -15,11 +15,25 @@ struct NoteData: Hashable {
     
 }
 
-class NoteModel: NSObject {
-    // Array with sample data
-    static let data: [NoteData] = [
+class NoteModel: ObservableObject, RandomAccessCollection {
+    typealias Element = NoteData
+    typealias Index = Array<NoteData>.Index
+    
+    @Published var data: [NoteData] = [
         NoteData(id: 0, title: "Note", description: "Just a note"),
         NoteData(id: 1, title: "Note", description: "Just a note"),
         NoteData(id: 2, title: "Note", description: "Just a note")
     ]
+    
+    var startIndex: Index { data.startIndex }
+    var endIndex: Index { data.endIndex }
+    
+    func index(after i: Index) -> Index {
+        data.index(after: i)
+    }
+    
+    subscript(position: Index) -> Element {
+        data[position]
+    }
+    
 }

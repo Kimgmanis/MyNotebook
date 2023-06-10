@@ -8,27 +8,35 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var noteModel = NoteModel()
     var appTitle = "Notes"
     
     var body: some View {
         NavigationView {
-            // Using NoteData id to find the note objects
-            List(NoteModel.data, id: \.id) { object in
-                // format
+            List(noteModel.data, id: \.id) { note in
                 HStack {
                     VStack {
-                        // Link to note on title
-                        NavigationLink(object.title, destination: NoteView(data: object))
+                        NavigationLink(note.title, destination: NoteView(noteTitle: note.title, noteDescription: note.description, data: note, noteModel: noteModel))
                     }
                 }
-                .navigationTitle(appTitle)
             }
+            .navigationTitle(appTitle)
+            .navigationBarItems(trailing: Button(action: addNewNote) {
+                Image(systemName: "plus")
+            })
         }
+    }
+    
+    func addNewNote() {
+        let newNote = NoteData(id: noteModel.data.count, title: "New Note", description: "Description")
+        noteModel.data.append(newNote)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        let noteModel = NoteModel()
+        return ContentView().environmentObject(noteModel)
     }
 }
+

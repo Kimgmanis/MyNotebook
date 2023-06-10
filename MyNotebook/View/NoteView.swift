@@ -8,24 +8,52 @@
 import SwiftUI
 
 struct NoteView: View {
-    @State var noteTitle = "Title"
-    @State var noteDescription = "Note description"
+    @Environment(\.presentationMode) var presentationMode
+    @State var noteTitle: String
+    @State var noteDescription: String
     var data: NoteData
+    var noteModel: NoteModel
     
     var body: some View {
         VStack {
-            Text(data.title).bold()
-            HStack {
-                Text(data.description)
-                Spacer()
+            TextField("Title", text: $noteTitle)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+            
+            ScrollView {
+                TextEditor(text: $noteDescription)
+                    .padding()
+                    .frame(height: 200)
             }
+            
+            Button("Save") {
+                saveNote()
+                presentationMode.wrappedValue.dismiss()
+            }
+            .padding()
+            
             Spacer()
         }
-    }
-}
-    
-    struct NoteView_Previews: PreviewProvider {
-        static var previews: some View {
-            NoteView(data: NoteModel.data[0])
+        .onAppear {
+            noteTitle = data.title
+            noteDescription = data.description
         }
     }
+    
+    func saveNote() {
+        guard let index = noteModel.data.firstIndex(of: data) else {
+            return
+        }
+        noteModel.data[index].title = noteTitle
+        noteModel.data[index].description = noteDescription
+    }
+}
+
+
+struct NoteView_Previews: PreviewProvider {
+    static var previews: some View {
+        let noteModel = NoteModel()
+        return NoteView(noteTitle: "", noteDescription: "", data: noteModel.data[0], noteModel: noteModel)
+    }
+}
+
