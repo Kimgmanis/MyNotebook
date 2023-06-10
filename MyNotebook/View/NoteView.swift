@@ -11,7 +11,7 @@ struct NoteView: View {
     @Environment(\.presentationMode) var presentationMode
     @State var noteTitle: String
     @State var noteDescription: String
-    var data: NoteData
+    var data: NoteData //Array
     var noteModel: NoteModel
     
     var body: some View {
@@ -37,11 +37,13 @@ struct NoteView: View {
             Spacer()
         }
         .onAppear {
+            // loads string data
             noteTitle = data.title
             noteDescription = data.description
         }
     }
     
+    // saves changes to note (Memory)
     func saveNote() {
         guard let index = noteModel.data.firstIndex(of: data) else {
             return
