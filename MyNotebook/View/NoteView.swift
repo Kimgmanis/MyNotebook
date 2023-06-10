@@ -16,18 +16,20 @@ struct NoteView: View {
     
     var body: some View {
         VStack {
+            Text("Title")
             TextField("Title", text: $noteTitle)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
-            
+            Text("Description")
             ScrollView {
                 TextEditor(text: $noteDescription)
                     .padding()
-                    .frame(height: 200)
+                    .frame(height: 800)
             }
             
             Button("Save") {
                 saveNote()
+                // returns back to content view
                 presentationMode.wrappedValue.dismiss()
             }
             .padding()
