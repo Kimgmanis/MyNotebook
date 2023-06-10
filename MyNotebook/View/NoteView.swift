@@ -29,7 +29,7 @@ struct NoteView: View {
             
             Button("Save") {
                 saveNote()
-                // returns back to content view
+                // returns back to content view. Dismisses NoteView
                 presentationMode.wrappedValue.dismiss()
             }
             .padding()

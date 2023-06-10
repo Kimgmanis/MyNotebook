@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    // Notes model class obj
+    // to observe changes in noteModel
     @ObservedObject var noteModel = NoteModel()
     var appTitle = "Notes"
     
@@ -40,7 +40,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let noteModel = NoteModel()
-        // loads notes
+        // creates an instance of content view and uses noteModel as an enviroment obj
         return ContentView().environmentObject(noteModel)
     }
 }
